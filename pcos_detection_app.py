@@ -18,10 +18,11 @@ def load_model_file():
         st.write("Downloading model...")
         urllib.request.urlretrieve(model_url, model_path)
         st.write("Model downloaded successfully!")
-    
+        
     model = load_model(model_path)
     return model
 
+# Load the model
 model = load_model_file()
 
 # Define target names for display
