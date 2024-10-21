@@ -6,11 +6,18 @@ from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing.image import img_to_array
 from PIL import Image
 import os
+import urllib.request
 
 # Load the trained model from the local path
 @st.cache_resource
 def load_model_file():
-    model_path = './pcosCNNmodel (1).keras'  
+    model_path = './pcosCNNmodel (1).keras'  # Use the local path
+    
+    if os.path.exists(model_path):
+        st.write(f"Model file found at {model_path}")
+    else:
+        st.write(f"Model file not found at {model_path}")
+        return None  # Return None if the file doesn't exist
     
     try:
         model = load_model(model_path)
@@ -69,3 +76,4 @@ if uploaded_files:
             st.write("Model couldn't be loaded. Please check the file path and format.")
     
     st.pyplot(fig)
+
