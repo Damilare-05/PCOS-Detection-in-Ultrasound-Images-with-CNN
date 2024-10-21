@@ -64,13 +64,15 @@ if uploaded_files:
         preprocessed_image = preprocess_image(image)
         
         # Get prediction
-        prediction = model.predict(preprocessed_image)
-        predicted_label = (prediction > 0.5).astype(int).flatten()[0]
-        
-        # Display actual and predicted labels
-        ax[i].imshow(np.asarray(image))
-        ax[i].set_title(f"Predicted: {target_names[predicted_label]}")
-        ax[i].axis('off')
+        if model:
+            prediction = model.predict(preprocessed_image)
+            predicted_label = (prediction > 0.5).astype(int).flatten()[0]
+            
+            # Display actual and predicted labels
+            ax[i].imshow(np.asarray(image))
+            ax[i].set_title(f"Predicted: {target_names[predicted_label]}")
+            ax[i].axis('off')
+        else:
+            st.write("Model couldn't be loaded. Please check the file path and format.")
     
     st.pyplot(fig)
- 
