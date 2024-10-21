@@ -12,7 +12,7 @@ import urllib.request
 @st.cache_resource
 def load_model_file():
     model_url = 'https://raw.githubusercontent.com/Damilare-05/PCOS-Detection-in-Ultrasound-Images-with-CNN/main/pcosCNNmodel%20(1).keras'
-    model_path = './pcosCNNmodel.keras'
+    model_path = './pcosCNNmodel%20(1).keras'
     
     if not os.path.exists(model_path):
         st.write("Downloading model...")
