@@ -15,6 +15,8 @@ def load_model_file():
     
     if os.path.exists(model_path):
         st.write(f"Model file found at {model_path}")
+        file_size = os.path.getsize(model_path)
+        st.write(f"Model file size: {file_size} bytes")
     else:
         st.write(f"Model file not found at {model_path}")
         return None  # Return None if the file doesn't exist
