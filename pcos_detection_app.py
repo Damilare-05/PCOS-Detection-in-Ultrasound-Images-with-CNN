@@ -11,7 +11,7 @@ import urllib.request
 # Download and load the trained model
 @st.cache_resource
 def load_model_file():
-    model_url = 'https://github.com/Damilare-05/PCOS-Detection-in-Ultrasound-Images-with-CNN/raw/main/pcosCNNmodel%20(1).keras'
+    model_url = 'https://raw.githubusercontent.com/Damilare-05/PCOS-Detection-in-Ultrasound-Images-with-CNN/main/pcosCNNmodel%20(1).keras'
     model_path = './pcosCNNmodel.keras'
     
     if not os.path.exists(model_path):
