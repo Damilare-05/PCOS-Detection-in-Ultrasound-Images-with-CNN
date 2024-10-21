@@ -6,18 +6,11 @@ from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing.image import img_to_array
 from PIL import Image
 import os
-import urllib.request
 
-# Download and load the trained model
+# Load the trained model from the local path
 @st.cache_resource
 def load_model_file():
-    model_url = 'https://raw.githubusercontent.com/Damilare-05/PCOS-Detection-in-Ultrasound-Images-with-CNN/main/pcosCNNmodel%20(1).keras'
-    model_path = './pcosCNNmodel%20(1).keras'
-    
-    if not os.path.exists(model_path):
-        st.write("Downloading model...")
-        urllib.request.urlretrieve(model_url, model_path)
-        st.write("Model downloaded successfully!")
+    model_path = './pcosCNNmodel (1).keras'  
     
     try:
         model = load_model(model_path)
