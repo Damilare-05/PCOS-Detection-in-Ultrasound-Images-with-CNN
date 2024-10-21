@@ -11,7 +11,7 @@ from PIL import Image
 # Load the trained model 
 @st.cache(allow_output_mutation=True)
 def load_model_file():
-    model = load_model('pcosCNNmodel%20(1).keras')
+    model = load_model('https://github.com/Damilare-05/PCOS-Detection-in-Ultrasound-Images-with-CNN/blob/main/pcosCNNmodel%20(1).keras')
     return model
 
 model = load_model_file()
