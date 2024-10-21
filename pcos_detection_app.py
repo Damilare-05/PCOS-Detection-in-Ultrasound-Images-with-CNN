@@ -5,6 +5,9 @@ import tensorflow as tf
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing.image import img_to_array
 from PIL import Image
+import os
+import urllib.request
+
 # Download and load the trained model
 @st.cache_resource
 def load_model_file():
