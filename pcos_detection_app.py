@@ -11,7 +11,7 @@ from PIL import Image
 # Load the trained model 
 @st.cache(allow_output_mutation=True)
 def load_model_file():
-    model = load_model('/content/drive/MyDrive/PcosData/data/pcosCNNmodel.keras')
+    model = load_model(pcosCNNmodel.keras')
     return model
 
 model = load_model_file()
