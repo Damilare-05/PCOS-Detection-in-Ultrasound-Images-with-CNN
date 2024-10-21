@@ -11,7 +11,7 @@ import urllib.request
 # Load the trained model from the local path
 @st.cache_resource
 def load_model_file():
-    model_path = './pcosCNNmodel (1).keras'  # Use the local path
+    model_path = 'pcosCNNmodel (1).keras'  # Use the local path
     
     if os.path.exists(model_path):
         st.write(f"Model file found at {model_path}")
