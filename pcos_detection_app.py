@@ -1,5 +1,3 @@
-
-
 import streamlit as st
 import numpy as np
 import matplotlib.pyplot as plt
@@ -7,11 +5,18 @@ import tensorflow as tf
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing.image import img_to_array
 from PIL import Image
-
-# Load the trained model 
-@st.cache(allow_output_mutation=True)
+# Download and load the trained model
+@st.cache_resource
 def load_model_file():
-    model = load_model('https://github.com/Damilare-05/PCOS-Detection-in-Ultrasound-Images-with-CNN/blob/main/pcosCNNmodel%20(1).keras')
+    model_url = 'https://github.com/Damilare-05/PCOS-Detection-in-Ultrasound-Images-with-CNN/raw/main/pcosCNNmodel%20(1).keras'
+    model_path = './pcosCNNmodel.keras'
+    
+    if not os.path.exists(model_path):
+        st.write("Downloading model...")
+        urllib.request.urlretrieve(model_url, model_path)
+        st.write("Model downloaded successfully!")
+    
+    model = load_model(model_path)
     return model
 
 model = load_model_file()
