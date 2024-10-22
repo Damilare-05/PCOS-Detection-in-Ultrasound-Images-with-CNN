@@ -2,6 +2,7 @@ import streamlit as st
 import numpy as np
 import matplotlib.pyplot as plt
 import tensorflow as tf
+import keras
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing.image import img_to_array
 from PIL import Image
@@ -22,7 +23,7 @@ def load_model_file():
         return None  # Return None if the file doesn't exist
     
     try:
-        model = load_model(model_path)
+        model = keras.models.load_model(model_path)
         st.write("Model loaded successfully!")
     except ValueError as e:
         st.write(f"Error loading the model: {e}")
