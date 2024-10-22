@@ -3,4 +3,4 @@ numpy
 matplotlib
 tensorflow
 Pillow
-keras
+keras==3.0.0
